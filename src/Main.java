@@ -11,8 +11,8 @@ public class Main {
         System.out.print("Введите ограничение: ");
         double N = input.nextDouble();
         double sum = 0;
-        if (x <  1 && x >= -1){
-            for (double n = 1;  n <= N; n++){
+        if (x <=  1 && x > -1){
+            for (double n = 0;  n <= N; n++){
                 sum += (Math.pow(-1, n) * Math.pow(x, n + 1)) / (n + 1);
             }
             System.out.println(sum);
