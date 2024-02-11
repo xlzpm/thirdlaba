@@ -1,24 +1,36 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-import java.util.Scanner;
-
-
 public class Main {
+
     public static void main(String[] args) {
-        System.out.print("Введите число: ");
-        Scanner input = new Scanner(System.in);
-        double x = input.nextDouble();
-        System.out.print("Введите ограничение: ");
-        double N = input.nextDouble();
-        double sum = 0;
-        if (x <=  1 && x > -1){
-            for (double n = 0;  n <= N; n++){
-                sum += (Math.pow(-1, n) * Math.pow(x, n + 1)) / (n + 1);
+        int[][] array = {
+                {10, 88, 11},
+                {12, 9, 1},
+                {7, 1, 6}
+        };
+
+        sortMainDiagonal(array);
+        printArray(array);
+    }
+
+    public static void sortMainDiagonal(int[][] array) {
+        for (int i = 1; i < array.length; i++) {
+            int j = i;
+            while (j > 0 && array[j][j] < array[j-1][j-1]) {
+                // меняем элементы на диагонали, пока текущий не станет больше предыдущего
+                int temp = array[j][j];
+                array[j][j] = array[j-1][j-1];
+                array[j-1][j-1] = temp;
+                j--;
             }
-            System.out.println(sum);
         }
-        else {
-            System.out.println("Не верно задано число");
+    }
+
+    public static void printArray(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
         }
     }
 }
+
