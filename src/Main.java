@@ -1,12 +1,15 @@
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
-        int[][] array = {
-                {10, 88, 11},
-                {12, 9, 1},
-                {7, 1, 6}
-        };
-
+        int[][] array = new int[3][3];
+        Random rd = new Random();
+        for(int i = 0; i < array.length; i++){
+            for(int j = 0; j < array[i].length; j++){
+                array[i][j] = rd.nextInt(50);
+            }
+        }
         sortMainDiagonal(array);
         printArray(array);
     }
